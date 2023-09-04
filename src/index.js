@@ -7,7 +7,11 @@ const resolvers = require('./graphql/resolvers/index')
 const connectMongoDB = require('./config/db')
 
 
-const server = new ApolloServer({typeDefs, resolvers})
+const server = new ApolloServer({
+    typeDefs, 
+    resolvers,
+    context: ({req}) => ({req})
+})
 
 
 
