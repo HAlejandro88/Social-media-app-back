@@ -5,9 +5,24 @@ const typeDefs = gql`
     type Post {
         id: ID!
         body: String!
-        created_at: String!
+        createdAt: String!
         username: String!
-        updated_at: String!
+        updatedAt: String!
+        comments: [Comment]!
+        likes: [like]!
+    }
+
+    type Comment {
+        id: ID!
+        createdAt: String!
+        username: String!
+        body: String!
+    }
+
+    type Like {
+        id: ID!
+        createdAt: String!
+        username: String!
     }
 
     type User {
@@ -15,16 +30,16 @@ const typeDefs = gql`
         username: String!
         token: String!
         email: String!
-        created_at: String!
-        updated_at: String!
+        createdAt: String!
+        updatedAt: String!
     }
 
     type UserGroup {
         id: ID!
         username: String!
         email: String!
-        created_at: String!
-        updated_at: String!
+        createdAt: String!
+        updatedAt: String!
     }
 
     input RegisterInput {
@@ -45,6 +60,9 @@ const typeDefs = gql`
         login(username:String!, password:String!): User!
         createPost(body: String!): Post!
         deletePost(postId:ID!): String!
+        createComment(postId: String!, body:String!): Post!
+        deleteComment(postId:ID!, commentId: ID!): Post!
+        likePost(postId: ID!): Post!
     }
 `
 
