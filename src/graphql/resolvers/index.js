@@ -11,6 +11,9 @@ const resolvers = {
         ...usersResolvers.Mutation,
         ...postResolvers.Mutation,
         ...commentResolvers.Mutation
+    },
+    Subscription: {
+        ...postResolvers.Subscription
     }
 }
 

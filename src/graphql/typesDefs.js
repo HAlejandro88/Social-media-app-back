@@ -9,7 +9,7 @@ const typeDefs = gql`
         username: String!
         updatedAt: String!
         comments: [Comment]!
-        likes: [like]!
+        likes: [Like]!
     }
 
     type Comment {
@@ -63,6 +63,10 @@ const typeDefs = gql`
         createComment(postId: String!, body:String!): Post!
         deleteComment(postId:ID!, commentId: ID!): Post!
         likePost(postId: ID!): Post!
+    }
+
+    type Subscription {
+        newPost: Post!
     }
 `
 
