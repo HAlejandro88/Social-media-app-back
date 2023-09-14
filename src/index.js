@@ -61,17 +61,18 @@ const server = new ApolloServer({
 })
 
 const start = async () => {
-    await server.start()
-    await connectMongoDB()
-    httpServer.listen(5000,() => console.log(`server started in port 5000`))
+    //await server.start()
+    //await connectMongoDB()
+   // httpServer.listen(5000)
+    //console.log('server started in port ');
 
-    /*const { url } = await startStandaloneServer(server, {
+    const { url } = await startStandaloneServer(server, {
         listen: { port: 5000 },
     });
 
-    connectMongoDB()
+    await connectMongoDB()
 
-    console.log('server started in port ' + url)*/
+    console.log('server started in port ' + url)
 }
 
 
