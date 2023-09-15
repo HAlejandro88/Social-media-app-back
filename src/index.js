@@ -12,19 +12,19 @@ const connectMongoDB = require('./config/db')
 const pubsub = new PubSub();
 
 
-const httpServer = createServer();
+//const httpServer = createServer();
 const server = new ApolloServer({
     typeDefs, 
     resolvers,
     context: ({req}) => ({req, pubsub}),
-    plugins: [ApolloServerPluginDrainHttpServer({ httpServer })]
+    //plugins: [ApolloServerPluginDrainHttpServer({ httpServer })]
 })
 
 
 
 server.listen({port: 5000})
     .then(async (res) => {
-        server.applyMiddleware({ app: httpServer });
+        //server.applyMiddleware({ app: httpServer });
         console.log(`Server listening on ${res.url}`)
         await connectMongoDB() 
     })
